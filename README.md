@@ -23,7 +23,7 @@ https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-bo
                      pump-five .. GPIO17 | [1]               [ ] | GPIO26
                      pump-six .... GPIO5 | [1]  ___________  [ ] | GPIO25 
                      pump-seven . GPIO18 | [1] |           | [ ] | GPIO33
-        				     pump-eight . GPIO19 | [1] |           | [ ] | GPIO32
+                     pump-eight . GPIO19 | [1] |           | [ ] | GPIO32
                      pump-nine .. GPIO21 | [1] |           | [ ] | GPIO35 
                      pump-ten .... GPIO3 | [1] |           | [ ] | GPIO34 
                                    GPIO1 | [ ] |           | [ ] | GPIO39 
