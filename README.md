@@ -6,8 +6,6 @@ Automated bartender
 The client code is designed to run on an esp32 devkit board. 
 The pinout diagram below shows which gpio pints are are use for this project.
 
-https://www.espressif.com/en/products/hardware/esp32/overview
-https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-board-pinout
 
 ```
 
@@ -37,3 +35,29 @@ https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-bo
                                          +-----------------------+
 
 ```
+
+For more details on the esp32 devkit board see links below
+
+https://www.espressif.com/en/products/hardware/esp32/overview
+
+https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-board-pinout
+
+### Api
+
+The client has 2 endpoints:
+
+`POST` `/activate` - activates a specifed gpio pin for a given duration 
+`GET` `/data` - returns mappings of the pump to gpio pin
+
+`/activate` expects the following json request
+
+```
+{
+	"state":true, // enable/disable gpio pin
+	"pin": 15,    // the pin to enable/disable
+	"duration": 5000 // the duration in millisecond the pin will remain enabled/disabled
+}
+```
+
+
+
