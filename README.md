@@ -17,13 +17,13 @@ https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-bo
                                      3V3 | [ ]               [1] | VIN
                                      GND | [ ]               [1] | GND 
                      pump-one ... GPIO15 | [1]               [ ] | GPIO13
- 								     pump-two .... GPIO2 | [1]               [ ] | GPIO12 
+                     pump-two .... GPIO2 | [1]               [ ] | GPIO12 
                      pump-three .. GPIO4 | [1]               [ ] | GPIO14
                      pump-four .. GPIO16 | [1]               [ ] | GPIO27
                      pump-five .. GPIO17 | [1]               [ ] | GPIO26
                      pump-six .... GPIO5 | [1]  ___________  [ ] | GPIO25 
                      pump-seven . GPIO18 | [1] |           | [ ] | GPIO33
-        				     pump-eight . GPIO19 | [1] |           | [ ] | GPIO32
+                     pump-eight . GPIO19 | [1] |           | [ ] | GPIO32
                      pump-nine .. GPIO21 | [1] |           | [ ] | GPIO35 
                      pump-ten .... GPIO3 | [1] |           | [ ] | GPIO34 
                                    GPIO1 | [ ] |           | [ ] | GPIO39 
