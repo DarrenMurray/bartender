@@ -58,7 +58,7 @@ https://www.espressif.com/en/products/hardware/esp32/overview
 https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-board-pinout
 
 #### Breadboard
-The below diagram shows a rough diagram of a single pump wired to the esp32 gpio port and powered by 12v power supply.
+The below image depicts a diagram of a single pump wired to the esp32 gpio port and powered by 12v power supply.
 
 ![image](https://user-images.githubusercontent.com/6143931/193470342-34dce1d6-b114-4708-8e89-b8bf801d4311.png)
 
