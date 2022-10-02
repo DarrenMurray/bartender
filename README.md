@@ -47,6 +47,7 @@ https://lastminuteengineers.com/esp32-arduino-ide-tutorial/#esp32-development-bo
 The client has 2 endpoints:
 
 `POST` `/activate` - activates a specifed gpio pin for a given duration 
+
 `GET` `/data` - returns mappings of the pump to gpio pin
 
 `/activate` expects the following json request
