@@ -26,7 +26,12 @@ std::map<String, int> pins = {
  {"pump7", 18},
  {"pump8", 19},
  {"pump9", 21},
- {"pump10", 3}};
+ {"pump10", 22},
+ {"pump11", 23},
+ {"pump12", 26},
+ {"pump13", 32},
+ {"pump14", 35},
+ {"pump15", 3}};
 
 // set the output mode for gpio pins
 void initPins() {
