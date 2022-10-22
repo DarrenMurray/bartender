@@ -1,0 +1,26 @@
+drinks:
+    - name: passionfruit-martini
+      description: |
+        This is a 
+        multiline description
+        of the cocktail
+      ingredients:
+        - name: Vanilla Vodka
+          type: liquid
+          amount: 50
+        - name: Passoa
+          type: liquid
+          amount: 15
+        - name: Lime Juice
+          type: liquid
+          amount: 15
+        - name: passionfruit
+          type: garnish
+          amount: 1
+        - name: syrup
+          type: garnish
+          amount: 1
+        - name: ice
+          type: garnish
+          amount: 3
+

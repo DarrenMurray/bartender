@@ -25,6 +25,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.10.0
+  path_provider: ^2.0.0
+  logger: ^1.1.0
 
 flutter_icons:
     ios: true
@@ -37,5 +39,6 @@ flutter:
   assets:
     - assets/images/
     - assets/google_fonts/
+    - assets/config/
 
 
