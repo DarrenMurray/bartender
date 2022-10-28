@@ -3,6 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class Alert extends StatelessWidget{
+  String msg = "";
+
+  Alert(this.msg, {super.key});
+
   @override
   Widget build(BuildContext context) {
     return  Center(
@@ -14,7 +18,7 @@ class Alert extends StatelessWidget{
         borderRadius: BorderRadius.circular(10),
     color: Color.fromRGBO(250, 128, 114, 100),
     ),
-        child:  Text("Select a drink to order!",
+        child:  Text(msg,
             textAlign: TextAlign.center,
             style: GoogleFonts.roboto(
               color: Colors.white,

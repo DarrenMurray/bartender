@@ -4,9 +4,11 @@ import 'package:bartender_ui/pins/pin.dart';
 import '../global/logger.dart' as logs;
 
 const String passionfruitMartini = "passionfruit-martini";
+const String ginAndGingerAle = "g&t";
 
 Map<String, Recipe> map = {
   passionfruitMartini: Recipe([Drink.Vodka, Drink.Passoa, Drink.LimeJuice]),
+  ginAndGingerAle: Recipe([Drink.Gin, Drink.GingerAle]),
 };
 
 class Recipe {
@@ -39,10 +41,5 @@ enum Drink {
   const Drink(this.pin, this.duration);
   final int pin;
   final int duration;
-}
-
-extension DrinkExt on Drink {
-  void Pour(){}
-
 }
 

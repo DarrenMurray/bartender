@@ -20,8 +20,8 @@ class Homepage extends StatefulWidget {
 
 class _MyHomePageState extends State<Homepage> {
   double _counter = 0.0;
+  String _alertMsg = "Select a drink to order!";
   bool _isLoading = false;
-  bool _orderComplete = false;
   bool _alert = false;
   bool _selected = false;
   PinManager pins = PinManager();
@@ -30,11 +30,7 @@ class _MyHomePageState extends State<Homepage> {
   Future<void> _orderDrink() async {
     logs.info("ordered drink: ${order.drinkSelected.name}");
     if (!order.DrinkSelected()) {
-      setState(() {
-        _alert = true;
-      });
-      await Future.delayed(const Duration(seconds: 3));
-      resetState();
+      setAlertState(_alertMsg);
       return;
     }
 
@@ -48,12 +44,22 @@ class _MyHomePageState extends State<Homepage> {
     if (orderedDrink != null) {
         logs.info("found drink recipe: ${orderedDrink.toString()}");
         await orderedDrink.Make();
-
       resetState();
     } else {
     logs.error(null, "drink recipe not found");
-    resetState();
+    setAlertState("Drink is not available!");
+    return;
     }
+  }
+
+  Future<void> setAlertState(String alertMsg) async {
+    setState(() {
+      _isLoading = false;
+      _alertMsg = alertMsg;
+      _alert = true;
+    });
+    await Future.delayed(const Duration(seconds: 3));
+    resetState();
   }
 
   void selectDrink() {
@@ -145,7 +151,7 @@ class _MyHomePageState extends State<Homepage> {
           ),
         if (_alert)
           Center(
-            child: Alert(),
+            child: Alert(_alertMsg),
           ),
       ]),
 
