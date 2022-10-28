@@ -1,0 +1,10 @@
+pins:
+  - id: v-vodka
+    name: Vanilla Vodka
+    pin: 15
+  - id: lime
+    name: Lime Juice
+    pin: 3
+  - id: passoa
+    name: Passoa Liqueur
+    pin: 5

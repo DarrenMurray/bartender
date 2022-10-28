@@ -4,7 +4,7 @@ Automated bartender
 ### Components
 
 The following components are required for this project
-##### client
+##### pump
 - [esp32-devkit](https://www.amazon.co.uk/gp/product/B07VJ34N2Q/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 - [12v peristaltic pump](https://www.amazon.co.uk/gp/product/B07D7TN1BW/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) x 10
 - [step down regulator](https://www.amazon.co.uk/gp/product/B089KBS5XR/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1)
@@ -12,13 +12,13 @@ The following components are required for this project
 - [12v power supply & power distribution board](https://www.amazon.co.uk/gp/product/B07R1YNG8Y/ref=ewc_pr_img_3?smid=A6FTR3WNTF6EM&psc=1)
 - [food safe tubing(inner 2mm x outer 4mm)](https://tinyurl.com/food-grade-tubing) x 20meters
 
-##### server
+##### server/ui
 - [raspberry pi 4b](https://thepihut.com/products/raspberry-pi-4-model-b)
 - [raspberry pi touchscreen display](https://thepihut.com/collections/latest-raspberry-pi-products/products/2-8-ips-capacitive-touch-dsi-display-for-raspberry-pi-480x640)
 
-## Client
+## Pump Control
 
-The client code is designed to run on an esp32 devkit board. 
+The `pump/` code is designed to run on an esp32 devkit board. 
 The pinout diagram below shows which gpio pints are are use for this project.
 
 
