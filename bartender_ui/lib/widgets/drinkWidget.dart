@@ -4,18 +4,19 @@ import '../global/order.dart' as globals;
 
 class DrinkTile extends StatefulWidget {
   final int itemNo;
+  final String id;
   final String name;
   final String? img;
   final String? description;
   bool state;
   VoidCallback selectDrink;
 
-  DrinkTile(this.itemNo, this.name, this.description, this.img, this.state, this.selectDrink);
-
+  DrinkTile(this.itemNo, this.id, this.name, this.description, this.img, this.state, this.selectDrink);
 
   @override
   State<DrinkTile> createState() => _MyDrinkState(
       this.itemNo,
+      this.id,
       this.name,
       this.description,
       this.img,
@@ -26,13 +27,14 @@ class DrinkTile extends StatefulWidget {
 
 class _MyDrinkState extends State<DrinkTile> {
   final int itemNo;
+  final String id;
   final String name;
   final String? img;
   final String? description;
   bool state;
   VoidCallback selectDrink;
 
-  _MyDrinkState(this.itemNo, this.name, this.description, this.img, this.state, this.selectDrink);
+  _MyDrinkState(this.itemNo, this.id, this.name, this.description, this.img, this.state, this.selectDrink);
 
   double selectedState(int item) {
     return item == globals.drinkSelected.index ? 1 : 0;
@@ -49,7 +51,7 @@ class _MyDrinkState extends State<DrinkTile> {
         onTap: () => {
           this.state = false,
           this.selectDrink(),
-          globals.drinkSelected = DrinkItem(this.name, this.description, this.itemNo)
+          globals.drinkSelected = DrinkItem(this.id, this.name, this.description, this.itemNo)
         },
         child: Container(
             height: 300,
@@ -98,9 +100,10 @@ class _MyDrinkState extends State<DrinkTile> {
 }
 
 class DrinkItem {
+  String id;
   String name;
   String? description;
   int index;
 
-  DrinkItem(this.name, this.description, this.index);
+  DrinkItem(this.id, this.name, this.description, this.index);
 }

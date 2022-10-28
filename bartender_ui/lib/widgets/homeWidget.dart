@@ -1,3 +1,4 @@
+import 'package:bartender_ui/pins/pin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../alerts/alerts.dart';
@@ -5,6 +6,7 @@ import '../drinks/drink.dart';
 import '../drinks/drinks.dart';
 import '../global/order.dart' as order;
 import '../global/logger.dart' as logs;
+import '../global/recipe.dart' as recipe;
 import 'drinkWidget.dart';
 
 class Homepage extends StatefulWidget {
@@ -18,53 +20,59 @@ class Homepage extends StatefulWidget {
 
 class _MyHomePageState extends State<Homepage> {
   double _counter = 0.0;
+  String _alertMsg = "Select a drink to order!";
   bool _isLoading = false;
   bool _alert = false;
   bool _selected = false;
+  PinManager pins = PinManager();
   List<Drink> _drinksList = Drinks.Get();
 
   Future<void> _orderDrink() async {
-    logs.info("pouring drink: ${order.drinkSelected.name}");
+    logs.info("ordered drink: ${order.drinkSelected.name}");
     if (!order.DrinkSelected()) {
-      setState(() {
-        _alert = true;
-      });
-      await Future.delayed(const Duration(seconds: 5));
-      setState(() {
-        _alert = false;
-      });
+      setAlertState(_alertMsg);
       return;
     }
 
-    double inc = 0.25;
     setState(() {
-      _counter = _counter + inc;
+      _counter = _counter + 0.25;
       _isLoading = true;
     });
 
-    await Future.delayed(const Duration(seconds: 2));
-    setState(() {
-      _counter = 1;
-    });
+    recipe.Recipe? orderedDrink = recipe.map[order.drinkSelected.id];
 
-    await Future.delayed(const Duration(seconds: 2));
-    setState(() {
-      _isLoading = false;
-      _counter = 0.0;
-    });
+    if (orderedDrink != null) {
+        logs.info("found drink recipe: ${orderedDrink.toString()}");
+        await orderedDrink.Make();
+      resetState();
+    } else {
+    logs.error(null, "drink recipe not found");
+    setAlertState("Drink is not available!");
+    return;
+    }
   }
 
-  // void _sendRequest() async {
-  //   var url = Uri.parse("https://catfact.ninja/fact");
-  //   var response = await http.get(url);
-  //   setState(() {
-  //     _response = response.body;
-  //   });
-  // }
+  Future<void> setAlertState(String alertMsg) async {
+    setState(() {
+      _isLoading = false;
+      _alertMsg = alertMsg;
+      _alert = true;
+    });
+    await Future.delayed(const Duration(seconds: 3));
+    resetState();
+  }
 
   void selectDrink() {
     setState(() {
       _selected = true;
+    });
+  }
+
+  void resetState(){
+    setState(() {
+      _isLoading = false;
+      _alert = false;
+      _counter = 0.0;
     });
   }
 
@@ -123,6 +131,7 @@ class _MyHomePageState extends State<Homepage> {
           itemCount: _drinksList.length,
           itemBuilder: (context, index) => DrinkTile(
               index,
+              _drinksList[index].id,
               " ${_drinksList[index].name} ",
               _drinksList[index].description,
               _drinksList[index].imgPath,
@@ -142,7 +151,7 @@ class _MyHomePageState extends State<Homepage> {
           ),
         if (_alert)
           Center(
-            child: Alert(),
+            child: Alert(_alertMsg),
           ),
       ]),
 
